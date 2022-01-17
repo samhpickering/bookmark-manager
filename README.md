@@ -4,7 +4,7 @@
     so that I can revisit pages I like
     I can see a list of bookmarks
 
-![Sequence diagram](relative/path/to/img.jpg?raw=true "Domain model diagram")
+![Sequence diagram](diagram.png "Domain model diagram")
 
 alias client="Client"
 alias controller="Controller"
