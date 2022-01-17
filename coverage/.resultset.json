@@ -1,0 +1,38 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/rizinakhatun/projects/Bookmark-Manager/app.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/rizinakhatun/projects/Bookmark-Manager/spec/bookmark_spec.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/rizinakhatun/projects/Bookmark-Manager/spec/features/index_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1642434619
+  }
+}
