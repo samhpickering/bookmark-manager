@@ -1,6 +1,6 @@
 feature 'viewing bookmarks' do
   scenario 'visiting index page' do
-    visit '/'
+    visit '/bookmarks'
 
     expect(page).to have_content 'Bookmarks'
     expect(page).to have_link('Google', href: 'https://www.google.com/')
