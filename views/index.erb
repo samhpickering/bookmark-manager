@@ -3,9 +3,9 @@
     <title>Bookmark Manager</title>
   </head>
   <body>
-    Bookmarks
+    <h1>Bookmarks</h1>
     <% @bookmarks.each do |bookmark| %>
-      <a href="<%= bookmark.url %>"><%= bookmark.title %></a>
+      <a href="<%= bookmark.url %>"><%= bookmark.title %></a><br>
     <% end %>
   </body>
 </html>
