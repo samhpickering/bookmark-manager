@@ -8,8 +8,15 @@ class Bookmark
     @url = url
   end
 
+  def ==(other)
+    @title == other.title && @url == other.url
+  end
+
   def self.all
-    connection = PG.connect dbname: 'bookmark_manager', user: ENV['USER']
+    dbname = 'bookmark_manager'
+    dbname = 'bookmark_manager_test' if ENV['ENVIRONMENT'] == 'test'
+
+    connection = PG.connect dbname: dbname, user: ENV['USER']
     result = connection.exec 'SELECT title, url FROM bookmarks;'
     result.map { |row| Bookmark.new(row['title'], row['url']) }
   ensure

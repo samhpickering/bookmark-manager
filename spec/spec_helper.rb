@@ -1,6 +1,7 @@
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require_relative 'db_test_helper'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -12,6 +13,7 @@ SimpleCov.start
 # For accurate test coverage measurements, require your code AFTER 'SimpleCov.start'
 
 ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 require_relative '../app'
 Capybara.app = BookmarkManager
@@ -32,6 +34,10 @@ Capybara.app = BookmarkManager
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.before :each do
+    set_up_test_db
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
