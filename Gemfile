@@ -1,18 +1,21 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-# gem "rails"
+ruby '3.0.0'
 
-ruby "3.0.0"
+gem 'pg'
+gem 'sinatra'
 
 group :test, :development do
-  gem "sinatra"
-  gem "sinatra-reloader"
-  gem "capybara"
-  gem "rspec"
-  gem "launchy"
-  gem "rubocop"
+  gem 'capybara'
+  gem 'launchy'
+  gem 'rspec'
+  gem 'rubocop'
+  gem 'simplecov'
+  gem 'simplecov-console'
+  gem 'sinatra-reloader'
+  gem 'webrick'
 end
