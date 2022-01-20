@@ -1,7 +1,7 @@
 require 'bookmark'
 
 describe Bookmark do
-  subject { described_class.new('Test Example', 'https://www.testexample.com/') }
+  subject { described_class.new(title: 'Test Example', url: 'https://www.testexample.com/') }
 
   it 'knows its title' do
     expect(subject.title).to eq('Test Example')
@@ -18,9 +18,9 @@ describe Bookmark do
     it 'returns the bookmarks inserted into the test database' do
       expect(Bookmark.all).to match_array(
         [
-          Bookmark.new('Google', 'https://www.google.com/'),
-          Bookmark.new('Facebook', 'https://www.facebook.com/'),
-          Bookmark.new('Instagram', 'https://www.instagram.com/')
+          Bookmark.new(title: 'Google', url: 'https://www.google.com/'),
+          Bookmark.new(title: 'Facebook', url: 'https://www.facebook.com/'),
+          Bookmark.new(title: 'Instagram', url: 'https://www.instagram.com/')
         ]
       )
     end
@@ -30,6 +30,13 @@ describe Bookmark do
     it 'adds a bookmark to the test database' do
       Bookmark.add(subject)
       expect(Bookmark.all).to include(subject)
+    end
+  end
+
+  describe '.delete' do
+    it 'removes a bookmark from the test database' do
+      Bookmark.delete(1)
+      expect(Bookmark.all.count).to eq(2)
     end
   end
 end

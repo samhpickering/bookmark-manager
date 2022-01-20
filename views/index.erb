@@ -1,11 +1,25 @@
 <html>
   <head>
     <title>Bookmark Manager</title>
+    <script>
+      function deleteBookmark(id) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("DELETE", '/bookmarks/' + id, true);
+
+        xhr.onreadystatechange = function() {
+          if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            location.reload();
+          }
+        }
+
+        xhr.send();
+      }
+    </script>
   </head>
   <body>
     <h1>Bookmarks</h1>
     <% @bookmarks.each do |bookmark| %>
-      <a href="<%= bookmark.url %>"><%= bookmark.title %></a><br>
+      <a href="<%= bookmark.url %>"><%= bookmark.title %></a> - <a href="#" onclick="deleteBookmark(<%= bookmark.id %>); return false;">Delete <%= bookmark.title %></a><br>
     <% end %>
     <a href="/add">Add</a>
   </body>
